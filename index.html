@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Jon Barron</title>
+    <title>Shyam Charan K</title>
 
     <meta name="author" content="Shyam Charan K">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,12 +22,11 @@
                 <p class="name" style="text-align: center;">
                   Shyam Charan K
                 </p>
-                <p>I'm an undergrad at <a href="https://www.nitt.edu/home/about/">NIT Trichy</a> studying Instrumentation and Control Engineering. I'm part of the <a href="hhttps://rmi.nitt.edu/">Robotics and Machine Intelligence Club</a>.
+                <p>
+                  I'm a final-year undergraduate student at <a href="https://www.nitt.edu/home/about/">NIT Trichy</a> studying Instrumentation and Control Engineering. My passion lies at the intersection of robotics, control theory, and artificial intelligence. I am a member of the <a href="https://rmi.nitt.edu/">Robotics and Machine Intelligence Club</a>.
                 </p>
                 <p>
-                I previously interned at 
-  <strong><a href="https://www.thryvmobility.com/" target="_blank">Thryv Mobility, IIT Madras</a></strong>, and I’m an incoming research intern at the 
-  <strong>Data Augmented Control of Autonomous Systems (DACAS) Lab, Indian Institute of Science (IISc)</strong> for the summer of 2025.
+                  I am a Remote Research Intern with the <strong><a href="https://www.marmot-lab.com/" target="_blank">MARMOT Lab, NUS</a></strong>, where I have been contributing since February 2025 and will be joining as an on-site Visiting Researcher in January 2026. This past summer, I completed a research internship at the <strong><a href="http://dacas.cds.iisc.ac.in/" target="_blank">DACAS Lab, IISc</a></strong>. Previously, I designed and tested electronics as an intern at <strong><a href="https://www.thryvmobility.com/" target="_blank">Thryv Mobility, IIT Madras</a></strong>.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:shyamcharan.nitt@gmail.com">Email</a> &nbsp;/&nbsp;
@@ -36,7 +35,7 @@
                 </p>
               </td>
               <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/shyamcharan.jpg" class="hoverZoomLink"></a>
+                <a href="images/shyamcharan.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/shyamcharan.jpg" class="hoverZoomLink"></a>
               </td>
             </tr>
           </tbody></table>
@@ -45,51 +44,86 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  I'm interested in <strong>reinforcement learning (RL)-based control for locomotion</strong> and legged robots, with a focus on exploring techniques such as imitation learning, policy optimization,and accelerated learning. 
-                  I’m also exploring <strong>computer vision</strong> for perception tasks and <strong>embedded electronics</strong> for hardware integration in robotic systems.                </p>
+                  I'm interested in <strong>reinforcement learning (RL)-based control for locomotion</strong> and legged robots, with a focus on exploring techniques such as imitation learning, policy optimization, sim-to-real transfer, and accelerated learning. I’m also exploring <strong>computer vision</strong> for perception tasks and <strong>embedded electronics</strong> for hardware integration in robotic systems.
+                </p>
               </td>
             </tr>
           </tbody></table>
+          
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+          <tr onmouseout="nus_project_stop()" onmouseover="nus_project_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='nus_project_image'>
+                  <video width=100% muted autoplay loop>
+                  <source src="images/nus_project.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src='images/nus_project.jpg' width=100%>
+              </div>
+              <script type="text/javascript">
+                function nus_project_start() {
+                  document.getElementById('nus_project_image').style.opacity = "1";
+                }
 
-    <tr onmouseout="r2r_stop()" onmouseover="r2r_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='r2r_image'><video  width=100% muted autoplay loop>
-          <source src="images/r2r.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/r2r.jpg' width=100%>
-        </div>
-        <script type="text/javascript">
-          function r2r_start() {
-            document.getElementById('r2r_image').style.opacity = "1";
-          }
+                function nus_project_stop() {
+                  document.getElementById('nus_project_image').style.opacity = "0";
+                }
+                nus_project_stop()
+              </script>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+              <a href="#">
+                <span class="papertitle">Visual Locomotion for Legged Robots on Uneven Terrain</span>
+              </a>
+              <br>
+              Remote Research Intern / Incoming Visiting Researcher, <strong>MARMOT Lab, NUS</strong>
+              <br>
+              <em>Advised by <a href="https://www.marmot-lab.com/prof-harold-tan">Prof. Harold Soh</a></em>
+              <br>
+              <p>
+              Developing a robust visual locomotion policy for quadruped robots to navigate challenging, unstructured environments. This research extends the principles of Rapid Motor Adaptation (RMA) by training a control policy that adapts in real-time to terrain features perceived through an onboard camera, leveraging techniques from deep reinforcement learning and computer vision.
+              </p>
+              </td>
+          </tr>
 
-          function r2r_stop() {
-            document.getElementById('r2r_image').style.opacity = "0";
-          }
-          r2r_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https:">
-          <span class="papertitle">GTitle</span>
-        </a>
-        <br>
-        
-        <p>
-				content
-        </p>
-      </td>
-    </tr>
+          <tr>
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <img src='images/iisc_project.jpg' alt="Drone Diffusion Project" width="100%">
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+              <a>
+                <span class="papertitle">Residual Dynamics Prediction for Quadrotors Using Diffusion Models</span>
+              </a>
+              <br>
+              Research Intern (Summer 2025), <strong>DACAS Lab, Indian Institute of Science (IISc)</strong>
+              <br>
+              <em>Advised by <a href="https://cds.iisc.ac.in/faculty/suresh/">Prof. Suresh Sundaram</a></em>
+              <p>
+              Developed a novel framework for predicting residual dynamics in quadrotors using diffusion models. This project aimed to improve flight controller performance by learning and compensating for unmodeled aerodynamic effects, leading to more accurate trajectory tracking even with aggressive maneuvers.
+              </p>
+              </td>
+          </tr>
 
+          <tr>
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <img src='images/thryv_project.jpg' alt="Thryv Mobility Project" width="100%">
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+              <a href="https://www.thryvmobility.com/">
+                <span class="papertitle">Embedded Systems for Electric Vehicle Prototypes</span>
+              </a>
+              <br>
+              Electronics Intern, <strong>Thryv Mobility, IIT Madras Research Park</strong>
+              <br>
+              <p>
+              Contributed to the development of an electric vehicle prototype by designing, fabricating, and testing custom Printed Circuit Boards (PCBs). Gained hands-on experience with embedded systems programming, analog and digital circuit design, and debugging hardware for motor controllers and battery management systems.
+              </p>
+            </td>
+          </tr>
 
-    
-
-           
-            
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
