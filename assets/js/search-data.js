@@ -402,9 +402,12 @@ ninja.data = [{
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/news/announcement_h2/";
+              window.location.href = "/news/announcement_3/";
             },},{id: "news-joined-robotics-and-machine-intelligence-as-robotics-engineer",
           title: 'Joined Robotics and Machine Intelligence as Robotics Engineer.',
+          description: "",
+          section: "News",},{id: "news-joined-thryv-mobility-as-an-embedded-systems-intern",
+          title: 'Joined Thryv Mobility as an Embedded Systems Intern.',
           description: "",
           section: "News",},{id: "news-started-working-as-a-remote-research-intern-at-marmot-lab-nus",
           title: 'Started working as a remote research intern at MARMoT Lab, NUS.',
