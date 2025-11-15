@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Undergraduate Robotics Researcher.
+subtitle: Undergraduate Robotics Researcher
 
 profile:
   align: right
