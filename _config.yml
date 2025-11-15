@@ -7,7 +7,7 @@ first_name: Shyam Charan
 middle_name:
 last_name: Kesavamoorthi
 contact_note: >
-  Email: shyamcharan.nitt@gmail.com
+  Email: [shyamcharan.nitt@gmail.com](mailto:shyamcharan.nitt@gmail.com)
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Undergraduate robot learning researcher with focus on manipulation and skill imitation.
 footer_text: >
