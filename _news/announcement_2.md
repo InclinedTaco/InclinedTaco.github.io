@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Joined [Robotics and Machine Intelligence](https://rmi.nitt.edu/) as Robotics Engineer.
+Joined [Robotics and Machine Intelligence](https://rmi.nitt.edu/) as a Robotics Engineer.
