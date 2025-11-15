@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Final year undergrad at NIT Trichy.
 
 profile:
   align: right
@@ -27,8 +27,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research interests lie at the intersection of **Robotics**, **Reinforcement Learning**, and **Control Systems**. I am particularly focused on **task-agnostic manipulation** and **skill imitation**, with the goal of building general-purpose robots—from legged robots to mobile manipulators—that can learn complex skills and operate efficiently in unstructured, real-world environments.
+
+I am completing my B.Tech in Instrumentation and Control Engineering at **NIT Tiruchirappalli** (expected July 2026). I am currently a Research Intern at the [Multi-Agent Robotic Motion (MARMoT) Laboratory](https://marmotlab.org/) at **NUS**, advised by [Prof. Guillaume Sartoretti](https://marmotlab.org/bio.html), where my work explores skill imitation for robotic manipulation.
+
+Previously, I worked as a Research Intern at the [**Data Augmented Control of Autonomous Systems (DACAS) Lab, IISc**](https://github.com/DACASLab), advised by [Prof. Jishnu Keshavan](https://mecheng.iisc.ac.in/project/jishnu-keshavan/), where I implemented the "Drone Diffusion" research paper. I also gained hands-on hardware experience as an Electronics Intern at [**Thryv Mobility (IIT Madras)**](https://www.thryvmobility.com/), where I focused on embedded systems, analog circuits, and PCB design.
