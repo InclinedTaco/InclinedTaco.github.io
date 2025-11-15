@@ -403,8 +403,8 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_3/";
-            },},{id: "news-joined-robotics-and-machine-intelligence-as-robotics-engineer",
-          title: 'Joined Robotics and Machine Intelligence as Robotics Engineer.',
+            },},{id: "news-joined-robotics-and-machine-intelligence-as-a-robotics-engineer",
+          title: 'Joined Robotics and Machine Intelligence as a Robotics Engineer.',
           description: "",
           section: "News",},{id: "news-joined-thryv-mobility-as-an-embedded-systems-intern",
           title: 'Joined Thryv Mobility as an Embedded Systems Intern.',
