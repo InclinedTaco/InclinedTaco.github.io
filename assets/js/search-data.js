@@ -402,7 +402,7 @@ ninja.data = [{
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/news/announcement_h2/";
+              window.location.href = "/news/announcement_3/";
             },},{id: "news-joined-robotics-and-machine-intelligence-as-robotics-engineer",
           title: 'Joined Robotics and Machine Intelligence as Robotics Engineer.',
           description: "",
