@@ -398,15 +398,15 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-joined-robotics-and-machine-intelligence-as-robotics-engineer",
-          title: 'Joined Robotics and Machine Intelligence as Robotics Engineer.',
-          description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
+            },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-started-working-as-a-remote-research-intern-at-marmot-lab-nus",
+            },},{id: "news-joined-robotics-and-machine-intelligence-as-robotics-engineer",
+          title: 'Joined Robotics and Machine Intelligence as Robotics Engineer.',
+          description: "",
+          section: "News",},{id: "news-started-working-as-a-remote-research-intern-at-marmot-lab-nus",
           title: 'Started working as a remote research intern at MARMoT Lab, NUS.',
           description: "",
           section: "News",},{id: "projects-project-1",
