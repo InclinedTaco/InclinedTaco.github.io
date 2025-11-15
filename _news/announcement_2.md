@@ -6,7 +6,7 @@ inline: false
 related_posts: false
 ---
 
-Started my Bachelor of Technology in Instrumentation and Control Engineering at NIT Trichy.
+Started my undergraduate journey at NIT Trichy.
 
 ---
 
