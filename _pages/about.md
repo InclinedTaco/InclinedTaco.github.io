@@ -31,4 +31,4 @@ I am completing my B.Tech in Instrumentation and Control Engineering at **NIT Ti
 
 Previously, I worked as a Research Intern at the [Data Augmented Control of Autonomous Systems (DACAS) Laboratory](https://github.com/DACASLab) at the **Indian Institute of Science**, advised by [Prof. Jishnu Keshavan](https://mecheng.iisc.ac.in/project/jishnu-keshavan/), where I implemented the "Drone Diffusion" research paper. I also gained hands-on hardware experience as an Electronics Intern at [Thryv Mobility](https://www.thryvmobility.com/), incubated at the **Indian Institute of Technology, Madras**, where I focused on embedded systems, analog circuits, and PCB design.
 
-I was also part of the [Robotics and Machine Intelligence](rmi.nitt.edu) club which introduced me to the awesome world of robotics!
+I was also part of the [Robotics and Machine Intelligence](https://rmi.nitt.edu/) club which introduced me to the awesome world of robotics!
