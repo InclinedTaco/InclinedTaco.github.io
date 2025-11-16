@@ -18,9 +18,9 @@
       {
         "network": "X",
         "username": "thisizshyam",
-        "url": "hhttps://x.com/thisizshyam"
+        "url": "https://x.com/thisizshyam"
       },
-       {
+      {
         "network": "LinkedIn",
         "username": "Shyam Charan",
         "url": "https://www.linkedin.com/in/shyamcharan/"
@@ -32,7 +32,6 @@
       }
     ]
   },
-{
   "work": [
     {
       "name": "Multi-Agent Robotic Motion Laboratory, NUS",
@@ -76,8 +75,7 @@
         "I2C/SPI Drivers"
       ]
     }
-  ]
-}
+  ],
   "education": [
     {
       "institution": "National Institute of Technology Tiruchirappalli",
@@ -87,7 +85,9 @@
       "startDate": "2022",
       "endDate": "2026",
       "score": "",
-      "courses": ["Robotics, Neural Networks and Fuzzy Logic, Control Systems"]
+      "courses": [
+        "Robotics, Neural Networks and Fuzzy Logic, Control Systems"
+      ]
     }
   ],
   "skills": [
@@ -130,5 +130,5 @@
         "Quantum Teleportation"
       ]
     }
-  ],
-
+  ]
+}
