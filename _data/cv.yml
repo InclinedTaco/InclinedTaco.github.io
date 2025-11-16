@@ -2,10 +2,10 @@
   type: map
   contents:
     - name: Full Name
-      value: Shyam Charan Kesavamoorthi
-    - name: Email
-      value: [shyamcharan.nitt@gmail.com](mailto:shyamcharan.nitt@gmail.com)
-    - name: Phone
+      value: Albert Einstein
+    - name: Date of Birth
+      value: 14th March 1879
+    - name: Languages
       value: English, German
 
 - title: Education
