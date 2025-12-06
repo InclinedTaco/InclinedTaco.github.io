@@ -4,7 +4,7 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 5
-cv_pdf: shyamCV.pdf # you can also use external links here
+cv_pdf: shyamCV1.pdf # you can also use external links here
 description:
 toc:
   sidebar: left
