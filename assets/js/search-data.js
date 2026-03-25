@@ -36,6 +36,9 @@ ninja.data = [{
           section: "News",},{id: "news-joined-dacas-lab-iisc-as-a-quadrotor-research-intern",
           title: 'Joined DACAS Lab, IISc as a Quadrotor Research Intern.',
           description: "",
+          section: "News",},{id: "news-started-as-an-onsite-research-intern-at-marmot-lab-nus",
+          title: 'Started as an onsite research intern at MARMoT Lab, NUS.',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
