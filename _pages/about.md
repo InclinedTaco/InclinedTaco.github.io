@@ -25,9 +25,9 @@ latest_posts:
 
 
 
-My research interests are in **Robot Learning** particularly focused on **task-agnostic manipulation** and **skill imitation**, with the goal of building general-purpose robots—from legged robots to mobile manipulators—that can learn complex skills and operate efficiently in unstructured, real-world environments.
+My research interests are in **loco-manipulation** and **multi-humanoid collaboration**, with the goal of building general-purpose robots that perform complex and collaborative tasks in real-world environments.
 
-I am completing my B.Tech in Instrumentation and Control Engineering at **NIT Tiruchirappalli** (expected July 2026). I am currently a Research Intern at the [Multi-Agent Robotic Motion (MARMoT) Laboratory](https://marmotlab.org/) at **National University of Singapore**, advised by [Prof. Guillaume Sartoretti](https://marmotlab.org/bio.html), where my work explores imitation learning for robotic manipulation.
+I am completing my B.Tech in Instrumentation and Control Engineering at **NIT Tiruchirappalli** (expected July 2026). I am currently a Research Intern at the [Multi-Agent Robotic Motion (MARMoT) Laboratory](https://marmotlab.org/) at **National University of Singapore**, advised by [Prof. Guillaume Sartoretti](https://marmotlab.org/bio.html), where my work explores humanoid locomanipulation and collaboration.
 
 Previously, I worked as a Research Intern at the [Data Augmented Control of Autonomous Systems (DACAS) Laboratory](https://github.com/DACASLab) at the **Indian Institute of Science**, advised by [Prof. Jishnu Keshavan](https://mecheng.iisc.ac.in/project/jishnu-keshavan/), where I worked on using diffusion models for residuals dynamics prediction. I also gained hands-on hardware experience as an Electronics Intern at [Thryv Mobility](https://www.thryvmobility.com/), incubated at the **Indian Institute of Technology, Madras**, where I focused on embedded systems, analog circuits, and PCB design.
 
