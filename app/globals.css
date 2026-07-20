@@ -174,12 +174,12 @@ button:focus-visible,
 }
 
 .name-scrambler {
+  position: relative;
   height: 1.55em;
   cursor: text;
 }
 
-.name-width-anchor,
-.name-visible {
+.name-width-anchor {
   grid-area: 1 / 1;
 }
 
@@ -197,6 +197,8 @@ button:focus-visible,
 }
 
 .name-visible {
+  position: absolute;
+  inset: 0;
   display: flex;
   width: 100%;
   height: 100%;

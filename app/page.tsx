@@ -55,18 +55,26 @@ function NameScrambler() {
     const nextTarget = isTamil ? 'tamil' : 'english'
     if (targetRef.current === nextTarget) return
     targetRef.current = nextTarget
-    setTargetIsTamil(isTamil)
 
     if (intervalRef.current !== null) {
       window.clearInterval(intervalRef.current)
     }
 
+    const targetCharacters = splitGraphemes(target)
+
     if (reduceMotion) {
+      setTargetIsTamil(isTamil)
       setDisplayName(target)
       return
     }
 
-    const targetCharacters = splitGraphemes(target)
+    setDisplayName(
+      targetCharacters
+        .map((character) => character === ' ' ? ' ' : randomNameCharacter())
+        .join(''),
+    )
+    setTargetIsTamil(isTamil)
+
     const totalFrames = Math.max(targetCharacters.length, 16)
     let frame = 0
 
