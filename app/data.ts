@@ -52,8 +52,14 @@ export const experience = [
 export const news = [
   {
     year: '2026',
-    month: 'Jan',
+    month: 'Jun',
     showYear: true,
+    text: 'Graduated from NIT Trichy.',
+  },
+  {
+    year: '2026',
+    month: 'Jan',
+    showYear: false,
     text: 'Moved on-site to MARMoT Laboratory, NUS as a Research Intern.',
   },
   {
