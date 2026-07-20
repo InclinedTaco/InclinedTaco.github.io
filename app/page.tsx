@@ -272,13 +272,6 @@ export default function Home() {
           transition={{ duration: 0.35 }}
         >
           <h2>Work</h2>
-          <div className="work-media">
-            {projects.map((project) => (
-              <div className="work-tile" key={project.title}>
-                <ProjectVisual variant={project.visual} />
-              </div>
-            ))}
-          </div>
           <div className="experience-list">
             {experience.map((item) => (
               <a href={item.href} target="_blank" rel="noreferrer" key={item.organisation}>
