@@ -41,10 +41,13 @@ function randomNameCharacter() {
 
 function NameScrambler() {
   const [displayName, setDisplayName] = useState(englishName)
+  const [targetIsTamil, setTargetIsTamil] = useState(false)
   const intervalRef = useRef<number | null>(null)
   const reduceMotion = useReducedMotion()
 
   const scrambleTo = (target: string) => {
+    setTargetIsTamil(target === tamilName)
+
     if (intervalRef.current !== null) {
       window.clearInterval(intervalRef.current)
     }
@@ -92,7 +95,7 @@ function NameScrambler() {
 
   return (
     <h1
-      className="name-scrambler"
+      className={`name-scrambler${targetIsTamil ? ' tamil-active' : ''}`}
       tabIndex={0}
       aria-label={englishName}
       onMouseEnter={() => scrambleTo(tamilName)}

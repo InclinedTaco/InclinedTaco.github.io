@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Tamil Pixel';
-  src: url('/fonts/unifont-tamil.woff2') format('woff2');
+  font-family: 'Coiny Tamil';
+  src: url('/fonts/coiny-tamil.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -178,8 +178,14 @@ button:focus-visible,
 }
 
 .name-output {
-  font-family: 'Press Start 2P', 'Tamil Pixel', ui-monospace, monospace;
+  font-family: 'Press Start 2P', 'Coiny Tamil', ui-monospace, monospace;
   white-space: nowrap;
+  transition: font-size 120ms ease;
+}
+
+.name-scrambler.tamil-active .name-output {
+  font-size: 1.18em;
+  letter-spacing: 0;
 }
 
 .pixel-cursor {
