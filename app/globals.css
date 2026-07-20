@@ -421,21 +421,6 @@ button:focus-visible {
   font-weight: 600;
 }
 
-.project-tags {
-  display: flex;
-  margin-top: 12px;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.project-tags span {
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: var(--soft);
-  color: var(--ink);
-  font-size: 14px;
-}
-
 .project-visual {
   position: relative;
   width: 100%;

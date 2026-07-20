@@ -6,7 +6,6 @@ export const projects = [
     period: '2025 — now',
     description:
       'Developed a flow-based motion generator for humanoid loco-manipulation. The generated motions serve as references for a downstream reinforcement-learning tracker fine-tuned with loco-manipulation rewards.',
-    tags: ['Flow models', 'Motion generation', 'RL tracking', 'Humanoids'],
     visual: 'locomotion',
   },
   {
@@ -16,7 +15,6 @@ export const projects = [
     period: '2025',
     description:
       'Built conditional diffusion models to predict multi-step uncertainty in quadrotor residual dynamics, with a focus on data efficiency and inference latency.',
-    tags: ['Diffusion models', 'Dynamics', 'PyTorch', 'Quadrotors'],
     visual: 'diffusion',
   },
   {
@@ -26,7 +24,6 @@ export const projects = [
     period: '2024 — 2025',
     description:
       'A gesture-driven reading device that combines edge hardware, vision, and small language models to make textbook content easier to access.',
-    tags: ['Computer vision', 'Edge AI', 'Jetson Nano', 'Raspberry Pi'],
     visual: 'vision',
   },
 ] as const

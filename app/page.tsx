@@ -211,6 +211,13 @@ export default function Home() {
               </a>{' '}
               on embedded systems and PCB design.
             </p>
+            <p>
+              I was also part of the{' '}
+              <a href="https://rmi.nitt.edu/" target="_blank" rel="noreferrer">
+                Robotics and Machine Intelligence
+              </a>{' '}
+              club which introduced me to the awesome world of robotics!
+            </p>
           </div>
           <div className="clear" />
         </motion.section>
@@ -276,10 +283,9 @@ export default function Home() {
             My current work develops flow-based motion generators for humanoid
             loco-manipulation. The generated motions are tracked by a downstream
             reinforcement-learning policy fine-tuned with loco-manipulation
-            rewards. I train and evaluate the tracker in IsaacLab and study
-            transfer to MuJoCo. My previous research includes conditional
-            diffusion models for quadrotor residual dynamics and embedded systems
-            for mobility applications.
+            rewards. My previous research includes conditional diffusion models
+            for quadrotor residual dynamics and embedded systems for mobility
+            applications.
           </p>
           <div className="experience-list">
             {experience.map((item) => (
@@ -315,11 +321,6 @@ export default function Home() {
                   <p className="project-period">
                     {project.period}
                   </p>
-                  <div className="project-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
                 </div>
               </article>
             ))}
