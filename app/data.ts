@@ -49,6 +49,24 @@ export const experience = [
   },
 ] as const
 
+export const publications = [
+  {
+    title: 'X-Morph: Human Motion Priors for Scalable Robot Learning Across Morphologies',
+    authors: [
+      'Ritwik Sharma',
+      'Shivam Sood',
+      'Arhaan Jain',
+      'Shyam Charan Kesavamoorthi',
+      'Chengyang He',
+      'Guillaume Sartoretti',
+    ],
+    venue: 'arXiv:2606.30290 · Robotics (cs.RO)',
+    year: '2026',
+    paper: 'https://arxiv.org/abs/2606.30290',
+    project: 'https://maker-rat.github.io/morph/',
+  },
+] as const
+
 export const news = [
   {
     year: '2026',

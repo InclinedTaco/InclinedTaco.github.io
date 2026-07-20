@@ -9,11 +9,11 @@ import {
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { experience, news, projects } from './data'
+import { experience, news, projects, publications } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
 
-const sectionIds = ['about', 'news', 'work', 'projects'] as const
+const sectionIds = ['about', 'news', 'work', 'publications', 'projects'] as const
 
 const reveal = {
   hidden: { opacity: 0, y: 14, filter: 'blur(5px)' },
@@ -282,6 +282,45 @@ export default function Home() {
                 <time>{item.range}</time>
                 <ArrowUpRight aria-hidden="true" />
               </a>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="publications"
+          className="academic-section"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <h2>Publications</h2>
+          <div className="publication-list">
+            {publications.map((publication) => (
+              <article className="publication-row" key={publication.title}>
+                <h3>{publication.title}</h3>
+                <p className="publication-authors">
+                  {publication.authors.map((author, index) => (
+                    <span key={author}>
+                      {author === 'Shyam Charan Kesavamoorthi' ? (
+                        <strong>{author}</strong>
+                      ) : (
+                        author
+                      )}
+                      {index < publication.authors.length - 1 && ', '}
+                    </span>
+                  ))}
+                </p>
+                <p className="publication-meta">
+                  {publication.venue} · {publication.year}
+                </p>
+                <div className="publication-links">
+                  <a href={publication.paper} target="_blank" rel="noreferrer">
+                    Paper <ArrowUpRight aria-hidden="true" />
+                  </a>
+                  <a href={publication.project} target="_blank" rel="noreferrer">
+                    Project page <ArrowUpRight aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </motion.section>
