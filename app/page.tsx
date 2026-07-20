@@ -48,6 +48,7 @@ function NameScrambler() {
   const leaveTimeoutRef = useRef<number | null>(null)
   const pointerInsideRef = useRef(false)
   const focusInsideRef = useRef(false)
+  const touchPinnedRef = useRef(false)
   const lastPointerTypeRef = useRef<string | null>(null)
   const targetRef = useRef<'english' | 'tamil'>('english')
   const reduceMotion = useReducedMotion()
@@ -118,7 +119,11 @@ function NameScrambler() {
     clearLeaveTimeout()
     leaveTimeoutRef.current = window.setTimeout(() => {
       leaveTimeoutRef.current = null
-      if (!pointerInsideRef.current && !focusInsideRef.current) {
+      if (
+        !pointerInsideRef.current &&
+        !focusInsideRef.current &&
+        !touchPinnedRef.current
+      ) {
         scrambleTo(englishName, false)
       }
     }, 90)
@@ -144,6 +149,7 @@ function NameScrambler() {
       aria-label={targetIsTamil ? tamilName : englishName}
       onPointerEnter={(event) => {
         if (event.pointerType === 'touch') return
+        touchPinnedRef.current = false
         pointerInsideRef.current = true
         showTamil()
       }}
@@ -168,13 +174,16 @@ function NameScrambler() {
         clearLeaveTimeout()
 
         if (targetRef.current === 'tamil') {
+          touchPinnedRef.current = false
           scrambleTo(englishName, false)
         } else {
+          touchPinnedRef.current = true
           showTamil()
         }
       }}
       onFocus={() => {
         if (lastPointerTypeRef.current !== null) return
+        touchPinnedRef.current = false
         focusInsideRef.current = true
         showTamil()
       }}
