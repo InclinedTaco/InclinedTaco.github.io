@@ -209,8 +209,7 @@ button:focus-visible {
   color: var(--ink);
 }
 
-.about-copy p a,
-.work-summary a {
+.about-copy p a {
   text-decoration-color: var(--faint);
   text-underline-offset: 2px;
 }
@@ -349,12 +348,8 @@ button:focus-visible {
   height: 132px;
 }
 
-.work-summary {
-  margin: 22px 0 20px;
-  color: var(--ink);
-}
-
 .experience-list {
+  margin-top: 22px;
   border-top: 1px solid var(--line);
 }
 

@@ -167,40 +167,42 @@ export default function Home() {
             </h1>
             <EmailScrambler />
             <p>
-              I graduated from{' '}
-              <a href="https://www.nitt.edu/" target="_blank" rel="noreferrer">
-                NIT Tiruchirappalli
-              </a>
-              {' '}with a B.Tech in Instrumentation and Control Engineering. I am
-              currently a Research Intern at the{' '}
+              I am currently a Research Intern at the{' '}
               <a href="https://marmotlab.org/" target="_blank" rel="noreferrer">
                 MARMoT Laboratory
-              </a>{' '}
-              at the National University of Singapore, advised by{' '}
+              </a>,{' '}
+              <a href="https://www.nus.edu.sg/" target="_blank" rel="noreferrer">
+                National University of Singapore
+              </a>, advised by{' '}
               <a
                 href="https://marmotlab.org/bio.html"
                 target="_blank"
                 rel="noreferrer"
               >
                 Prof. Guillaume Sartoretti
-              </a>
-              .
+              </a>, where I work on humanoid whole-body loco-manipulation and
+              long-horizon skill composition. I am broadly interested in
+              structure-aware and data-efficient robot-learning methods that use
+              strong inductive biases rather than relying on scale alone.
             </p>
             <p>
-              Previously, I was a Research Intern at{' '}
+              I graduated from{' '}
+              <a href="https://www.nitt.edu/" target="_blank" rel="noreferrer">
+                NIT Tiruchirappalli
+              </a>{' '}
+              with a B.Tech in Instrumentation and Control Engineering.
+              Previously, I was a Research Intern at the{' '}
               <a href="https://github.com/DACASLab" target="_blank" rel="noreferrer">
                 DACAS Lab, IISc
-              </a>
-              , advised by{' '}
+              </a>, advised by{' '}
               <a
                 href="https://mecheng.iisc.ac.in/project/jishnu-keshavan/"
                 target="_blank"
                 rel="noreferrer"
               >
                 Prof. Jishnu Keshavan
-              </a>
-              , where I worked on diffusion models for quadrotor residual
-              dynamics. I also worked at{' '}
+              </a>, where I worked on diffusion models for quadrotor residual
+              dynamics. I have also worked at{' '}
               <a
                 href="https://www.thryvmobility.com/"
                 target="_blank"
@@ -211,11 +213,10 @@ export default function Home() {
               on embedded systems and PCB design.
             </p>
             <p>
-              I was also part of the{' '}
+              My journey into robotics began at NIT Trichy’s{' '}
               <a href="https://rmi.nitt.edu/" target="_blank" rel="noreferrer">
-                Robotics and Machine Intelligence
-              </a>{' '}
-              club which introduced me to the awesome world of robotics!
+                Robotics and Machine Intelligence club
+              </a>, where I worked on my first robotics projects.
             </p>
           </div>
           <div className="clear" />
@@ -278,12 +279,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="work-summary">
-            My research interests are in humanoid whole-body loco-manipulation
-            and long-horizon skill chaining. I am particularly interested in
-            structure-aware, data-efficient methods that use strong inductive
-            biases rather than relying on scale alone.
-          </p>
           <div className="experience-list">
             {experience.map((item) => (
               <a href={item.href} target="_blank" rel="noreferrer" key={item.organisation}>
