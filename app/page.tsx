@@ -91,17 +91,18 @@ function NameScrambler() {
   )
 
   return (
-    <button
-      type="button"
+    <h1
       className="name-scrambler"
+      tabIndex={0}
       aria-label={englishName}
       onMouseEnter={() => scrambleTo(tamilName)}
       onMouseLeave={() => scrambleTo(englishName)}
       onFocus={() => scrambleTo(tamilName)}
       onBlur={() => scrambleTo(englishName)}
     >
-      <span aria-hidden="true">{displayName}</span>
-    </button>
+      <span className="name-output" aria-hidden="true">{displayName}</span>
+      <span className="pixel-cursor" aria-hidden="true" />
+    </h1>
   )
 }
 
@@ -242,10 +243,7 @@ export default function Home() {
         >
           <img src="/portrait.jpg" alt="Portrait of Shyam Charan" />
           <div className="about-copy">
-            <h1>
-              <NameScrambler />
-              <span className="pixel-cursor" aria-hidden="true" />
-            </h1>
+            <NameScrambler />
             <EmailScrambler />
             <p>
               I am currently a Research Intern at the{' '}

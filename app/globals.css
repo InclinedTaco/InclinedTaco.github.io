@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Tamil Pixel';
+  src: url('/fonts/unifont-tamil.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0B80-0BFF;
+}
+
 :root {
   --paper: #fbfbf8;
   --ink: #18181b;
@@ -47,7 +56,8 @@ a {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+.name-scrambler:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
@@ -156,7 +166,7 @@ button:focus-visible {
   align-items: flex-end;
   color: var(--ink);
   font-family: var(--pixel);
-  font-size: 17px;
+  font-size: clamp(10px, 3.45vw, 16px);
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: -0.04em;
@@ -164,18 +174,12 @@ button:focus-visible {
 
 .name-scrambler {
   min-height: 1.55em;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  text-align: left;
   cursor: text;
 }
 
-.name-scrambler span {
-  font-family: var(--pixel), 'Noto Sans Tamil', 'Tamil Sangam MN', Latha, sans-serif;
+.name-output {
+  font-family: 'Press Start 2P', 'Tamil Pixel', ui-monospace, monospace;
+  white-space: nowrap;
 }
 
 .pixel-cursor {
@@ -673,10 +677,6 @@ footer a {
 
   .nav-links button {
     padding: 5px 2px;
-  }
-
-  .about-copy h1 {
-    font-size: 14px;
   }
 
   .project-row {
