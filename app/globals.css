@@ -184,7 +184,11 @@ button:focus-visible,
 
 .name-scrambler.tamil-active .name-output {
   font-family: 'Ka Kavithai', sans-serif;
-  font-size: clamp(1.18em, 4.2vw, 1.38em);
+  font-size: clamp(
+    calc(1.18em + 2px),
+    calc(4.2vw + 2px),
+    calc(1.38em + 2px)
+  );
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
