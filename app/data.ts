@@ -74,10 +74,4 @@ export const news = [
     showYear: true,
     text: 'Worked at Thryv Mobility as an Embedded Systems Intern.',
   },
-  {
-    year: '2024',
-    month: 'Jan',
-    showYear: false,
-    text: 'Won first place at SANGAM for an AR surgical-training prototype.',
-  },
 ] as const
