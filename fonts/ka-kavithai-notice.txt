@@ -1,0 +1,12 @@
+Ka Kavithai — legacy Tamil display font
+
+Source: https://fonttamil.com/font/ka-kavithai.html
+Downloaded from the font file used by that page's specimen.
+
+Embedded font metadata:
+- Family: Ka Kavithai
+- PostScript name: J_ValluvarExB
+- Version: Nov.1999
+- Copyright record: Knieoc
+
+The font uses the legacy Ka character map rather than Unicode Tamil.
