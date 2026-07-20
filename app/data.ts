@@ -54,10 +54,6 @@ export const experience = [
 
 export const milestones = [
   {
-    date: 'Jan 2026',
-    text: 'Began a funded on-site research term at MARMoT Lab, NUS.',
-  },
-  {
     date: 'May 2025',
     text: 'Joined MARMoT Lab and DACAS Lab as a research intern.',
   },
