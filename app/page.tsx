@@ -25,8 +25,10 @@ const scrambleCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 const englishName = 'Shyam Charan Kesavamoorthi'
 const tamilName = 'ஷ்யாம் சரண் கேசவமூர்த்தி'
+// Ka Kavithai is a legacy Tamil font whose glyphs are mapped to Latin codepoints.
+const tamilNameKa = 'xVôm NWi úLNYêoj§'
 const nameScrambleCharacters =
-  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789அஆஇஈஉஊஎஏஐஒஓகஙசஞடணதநபமயரலவழளறன'
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
 function splitGraphemes(value: string) {
   const segmenter = new Intl.Segmenter('ta', { granularity: 'grapheme' })
@@ -45,8 +47,8 @@ function NameScrambler() {
   const intervalRef = useRef<number | null>(null)
   const reduceMotion = useReducedMotion()
 
-  const scrambleTo = (target: string) => {
-    setTargetIsTamil(target === tamilName)
+  const scrambleTo = (target: string, isTamil: boolean) => {
+    setTargetIsTamil(isTamil)
 
     if (intervalRef.current !== null) {
       window.clearInterval(intervalRef.current)
@@ -97,11 +99,12 @@ function NameScrambler() {
     <h1
       className={`name-scrambler${targetIsTamil ? ' tamil-active' : ''}`}
       tabIndex={0}
-      aria-label={englishName}
-      onMouseEnter={() => scrambleTo(tamilName)}
-      onMouseLeave={() => scrambleTo(englishName)}
-      onFocus={() => scrambleTo(tamilName)}
-      onBlur={() => scrambleTo(englishName)}
+      lang={targetIsTamil ? 'ta' : 'en'}
+      aria-label={targetIsTamil ? tamilName : englishName}
+      onMouseEnter={() => scrambleTo(tamilNameKa, true)}
+      onMouseLeave={() => scrambleTo(englishName, false)}
+      onFocus={() => scrambleTo(tamilNameKa, true)}
+      onBlur={() => scrambleTo(englishName, false)}
     >
       <span className="name-output" aria-hidden="true">{displayName}</span>
       <span className="pixel-cursor" aria-hidden="true" />

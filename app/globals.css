@@ -1,10 +1,9 @@
 @font-face {
-  font-family: 'Tamil Pixel';
-  src: url('/fonts/unifont-tamil.woff2') format('woff2');
+  font-family: 'Ka Kavithai';
+  src: url('/fonts/ka-kavithai.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  unicode-range: U+0B80-0BFF;
 }
 
 :root {
@@ -178,13 +177,16 @@ button:focus-visible,
 }
 
 .name-output {
-  font-family: 'Press Start 2P', 'Tamil Pixel', ui-monospace, monospace;
+  font-family: 'Press Start 2P', ui-monospace, monospace;
   white-space: nowrap;
   transition: font-size 120ms steps(2, end);
 }
 
 .name-scrambler.tamil-active .name-output {
-  font-size: clamp(1.18em, 4.2vw, 1.42em);
+  font-family: 'Ka Kavithai', sans-serif;
+  font-size: clamp(1.18em, 4.2vw, 1.38em);
+  font-weight: 400;
+  line-height: 1;
   letter-spacing: 0;
 }
 
