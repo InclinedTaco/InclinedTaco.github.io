@@ -167,12 +167,12 @@ export default function Home() {
             </h1>
             <EmailScrambler />
             <p>
-              I am a final-year B.Tech student in Instrumentation and Control
-              Engineering at{' '}
+              I graduated from{' '}
               <a href="https://www.nitt.edu/" target="_blank" rel="noreferrer">
                 NIT Tiruchirappalli
               </a>
-              . I am currently a Research Intern at the{' '}
+              {' '}with a B.Tech in Instrumentation and Control Engineering. I am
+              currently a Research Intern at the{' '}
               <a href="https://marmotlab.org/" target="_blank" rel="noreferrer">
                 MARMoT Laboratory
               </a>{' '}
