@@ -140,73 +140,14 @@ button:focus-visible {
   padding: 88px 0 24px;
 }
 
-.observation-portrait {
-  position: relative;
+.about-section > img {
   display: block;
   width: 300px;
   height: 300px;
-  padding: 0;
   margin: 0 auto 16px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  overflow: hidden;
-  background: #111;
-  color: #fff;
-  cursor: pointer;
-  isolation: isolate;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.observation-portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  user-select: none;
-  animation: observation-in 180ms ease-out;
-}
-
-.observation-label,
-.observation-hint {
-  position: absolute;
-  z-index: 3;
-  padding: 5px 6px 4px;
-  background: rgba(9, 9, 11, 0.72);
-  color: #fff;
-  font-family: var(--pixel);
-  font-size: 7px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  backdrop-filter: blur(4px);
-}
-
-.observation-label {
-  top: 9px;
-  left: 9px;
-}
-
-.observation-hint {
-  right: 9px;
-  bottom: 9px;
-  opacity: 0;
-  transition: opacity 150ms ease;
-}
-
-.observation-portrait:hover .observation-hint,
-.observation-portrait:focus-visible .observation-hint {
-  opacity: 1;
-}
-
-@keyframes observation-in {
-  from {
-    opacity: 0.45;
-    transform: scale(1.012);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .about-copy h1 {
@@ -699,7 +640,7 @@ footer a {
 }
 
 @media (min-width: 640px) {
-  .observation-portrait {
+  .about-section > img {
     float: left;
     margin: 0 24px 12px 0;
   }

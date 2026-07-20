@@ -24,47 +24,6 @@ const emailUser = 'shyamcharan.nitt'
 const scrambleCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
-const observations = [
-  { label: 'RGB', src: '/portrait.jpg', description: 'RGB portrait' },
-  {
-    label: 'DEPTH',
-    src: '/portrait-depth.webp',
-    description: 'depth-map rendering of the portrait',
-  },
-] as const
-
-function ObservationPortrait() {
-  const [modeIndex, setModeIndex] = useState(0)
-  const observation = observations[modeIndex]
-  const nextObservation = observations[(modeIndex + 1) % observations.length]
-
-  useEffect(() => {
-    const image = new Image()
-    image.src = nextObservation.src
-  }, [nextObservation.src])
-
-  return (
-    <button
-      type="button"
-      className="observation-portrait"
-      onClick={() => setModeIndex((modeIndex + 1) % observations.length)}
-      aria-label={`Portrait observation: ${observation.label}. Activate to switch to ${nextObservation.label}.`}
-      title="Cycle policy observations"
-    >
-      <img
-        key={observation.src}
-        src={observation.src}
-        alt={`${observation.description} of Shyam Charan`}
-        draggable="false"
-      />
-      <span className="observation-label" aria-live="polite">
-        OBS / {observation.label}
-      </span>
-      <span className="observation-hint" aria-hidden="true">click ↻</span>
-    </button>
-  )
-}
-
 function randomCharacters(length: number) {
   return Array.from({ length }, () =>
     scrambleCharacters.charAt(
@@ -200,7 +159,7 @@ export default function Home() {
           variants={reveal}
           transition={{ duration: 0.35 }}
         >
-          <ObservationPortrait />
+          <img src="/portrait.jpg" alt="Portrait of Shyam Charan" />
           <div className="about-copy">
             <h1>
               Shyam Charan Kesavamoorthi
