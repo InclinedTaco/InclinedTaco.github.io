@@ -1,210 +1,303 @@
 'use client'
 
-import { ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
+import {
+  ArrowUpRight,
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+} from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { experience, projects } from './data'
+import { useEffect, useState } from 'react'
+import { experience, news, projects } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
 
+const sectionIds = ['about', 'news', 'work', 'projects'] as const
+
 const reveal = {
-  hidden: { opacity: 0, y: 18, filter: 'blur(7px)' },
+  hidden: { opacity: 0, y: 14, filter: 'blur(5px)' },
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
 
-function ExternalLink({
+function EmailScrambler() {
+  const [revealed, setRevealed] = useState(false)
+
+  return (
+    <div className="email-block">
+      <button type="button" onClick={() => setRevealed((value) => !value)}>
+        {revealed ? (
+          <>
+            shyamcharan.nitt<span> [at] </span>gmail<span> [dot] </span>com
+          </>
+        ) : (
+          <>
+            ••••••••••••••••<span> [at] </span>gmail<span> [dot] </span>com
+          </>
+        )}
+      </button>
+      <small>{revealed ? '\u00a0' : '(click to unscramble)'}</small>
+    </div>
+  )
+}
+
+function SocialLink({
   href,
+  label,
   children,
 }: {
   href: string
+  label: string
   children: React.ReactNode
 }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="pill-link">
+    <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
       {children}
-      <ArrowUpRight size={13} strokeWidth={1.8} aria-hidden="true" />
+      {label}
     </a>
   )
 }
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('about')
   const reduceMotion = useReducedMotion()
 
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const position = window.scrollY + 150
+      for (const id of sectionIds) {
+        const section = document.getElementById(id)
+        if (
+          section &&
+          position >= section.offsetTop &&
+          position < section.offsetTop + section.offsetHeight
+        ) {
+          setActiveSection(id)
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    updateActiveSection()
+    return () => window.removeEventListener('scroll', updateActiveSection)
+  }, [])
+
+  const scrollTo = (id: string) => {
+    const section = document.getElementById(id)
+    if (section) window.scrollTo({ top: section.offsetTop - 82, behavior: 'smooth' })
+  }
+
   return (
-    <main className="site-shell">
-      <motion.header
-        className="site-header"
-        initial={reduceMotion ? false : 'hidden'}
-        animate="visible"
-        variants={reveal}
-        transition={{ duration: 0.45 }}
-      >
-        <a href="#top" className="identity" aria-label="Back to top">
-          <img src="/portrait.jpg" alt="Shyam Charan" />
-          <span>
-            <strong>Shyam Charan</strong>
-            <small>Robotics researcher</small>
-          </span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#work">Research</a>
-          <a href="#experience">Experience</a>
-          <a href="/shyamcharanCV.pdf" target="_blank">
-            CV
-          </a>
-        </nav>
-      </motion.header>
-
-      <motion.section
-        id="top"
-        className="hero"
-        initial={reduceMotion ? false : 'hidden'}
-        animate="visible"
-        variants={reveal}
-        transition={{ duration: 0.5, delay: 0.08 }}
-      >
-        <div className="status-line">
-          <span className="status-dot" />
-          Research Intern · MARMoT Lab, NUS
-        </div>
-        <h1>Shyam Charan Kesavamoorthi</h1>
-        <p className="hero-copy">
-          I am a final-year undergraduate at NIT Tiruchirappalli and a Research
-          Intern at MARMoT Lab, National University of Singapore. My research
-          focuses on loco-manipulation, robot learning, and multi-humanoid
-          collaboration.
-        </p>
-        <div className="hero-links">
-          <ExternalLink href="mailto:shyamcharan.nitt@gmail.com">
-            <Mail size={14} aria-hidden="true" /> Email
-          </ExternalLink>
-          <ExternalLink href="https://github.com/inclinedtaco">
-            <Github size={14} aria-hidden="true" /> GitHub
-          </ExternalLink>
-          <ExternalLink href="https://www.linkedin.com/in/shyamcharan/">
-            <Linkedin size={14} aria-hidden="true" /> LinkedIn
-          </ExternalLink>
-        </div>
-      </motion.section>
-
-      <section id="work" className="section-block">
-        <div className="section-heading">
-          <div>
-            <span>Research</span>
-            <h2>Selected projects</h2>
-          </div>
-        </div>
-
-        <div className="project-grid">
-          {projects.map((project, index) => (
-            <motion.article
-              className={`project-card project-${index + 1}`}
-              key={project.title}
-              initial={reduceMotion ? false : 'hidden'}
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              variants={reveal}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-            >
-              <ProjectVisual variant={project.visual} />
-              <div className="project-body">
-                <div className="project-meta">
-                  <span>{project.index}</span>
-                  <span>{project.period}</span>
-                </div>
-                <h3>{project.title}</h3>
-                <p className="project-context">{project.context}</p>
-                <p>{project.description}</p>
-                <ul className="tag-list" aria-label={`${project.title} tools`}>
-                  {project.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </section>
-
-      <section id="experience" className="section-block">
-        <div className="section-heading compact">
-          <div>
-            <span>Background</span>
-            <h2>Experience</h2>
-          </div>
-        </div>
-        <div className="experience-list">
-          {experience.map((item) => (
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className="experience-row"
-              key={item.organisation}
-            >
-              <span>
-                <strong>{item.role}</strong>
-                <small>{item.organisation}</small>
+    <>
+      <nav className="top-nav" aria-label="Primary navigation">
+        <div className="nav-inner">
+          <div className="nav-links">
+            {sectionIds.map((id, index) => (
+              <span key={id}>
+                <button
+                  type="button"
+                  className={activeSection === id ? 'active' : ''}
+                  onClick={() => scrollTo(id)}
+                >
+                  {id === 'about'
+                    ? 'About'
+                    : id === 'projects'
+                      ? 'Projects'
+                      : id[0].toUpperCase() + id.slice(1)}
+                </button>
+                {index < sectionIds.length - 1 && <i>/</i>}
               </span>
-              <span className="experience-date">{item.range}</span>
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="split-section section-block">
-        <div>
-          <div className="section-heading compact">
-            <div>
-              <span>Education</span>
-              <h2>NIT Tiruchirappalli</h2>
-            </div>
+            ))}
           </div>
-          <div className="profile-detail">
-            <strong>B.Tech, Instrumentation and Control Engineering</strong>
-            <span>2022 — 2026</span>
-          </div>
+          <ThemeToggle />
         </div>
-        <div>
-          <div className="section-heading compact">
-            <div>
-              <span>Research interests</span>
-              <h2>Areas of focus</h2>
-            </div>
-          </div>
-          <ul className="focus-list">
-            <li>Loco-manipulation</li>
-            <li>Whole-body control</li>
-            <li>Multi-humanoid collaboration</li>
-            <li>Imitation and reinforcement learning</li>
-          </ul>
-        </div>
-      </section>
+      </nav>
 
-      <section className="closing-card">
-        <h2>Contact</h2>
-        <p>
-          For research discussions or collaboration, email me at{' '}
-          <a href="mailto:shyamcharan.nitt@gmail.com">
-            shyamcharan.nitt@gmail.com
-          </a>
-          .
-        </p>
-        <div className="closing-actions">
-          <a href="mailto:shyamcharan.nitt@gmail.com" className="primary-button">
-            Email <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
-          <a href="/shyamcharanCV.pdf" target="_blank" className="text-button">
-            <FileText size={15} aria-hidden="true" /> View CV
-          </a>
-        </div>
-      </section>
+      <motion.main
+        className="academic-shell"
+        initial={reduceMotion ? false : 'hidden'}
+        animate="visible"
+        variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+      >
+        <motion.section
+          id="about"
+          className="about-section"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <img src="/portrait.jpg" alt="Portrait of Shyam Charan" />
+          <div className="about-copy">
+            <h1>
+              Shyam Charan Kesavamoorthi
+              <span className="pixel-cursor" aria-hidden="true" />
+            </h1>
+            <EmailScrambler />
+            <p>
+              I am a final-year B.Tech student in Instrumentation and Control
+              Engineering at{' '}
+              <a href="https://www.nitt.edu/" target="_blank" rel="noreferrer">
+                NIT Tiruchirappalli
+              </a>
+              . I am currently a Research Intern at the{' '}
+              <a href="https://marmotlab.org/" target="_blank" rel="noreferrer">
+                MARMoT Laboratory
+              </a>{' '}
+              at the National University of Singapore, advised by{' '}
+              <a
+                href="https://marmotlab.org/bio.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Prof. Guillaume Sartoretti
+              </a>
+              . My research focuses on humanoid loco-manipulation and
+              multi-humanoid collaboration.
+            </p>
+            <p>
+              Previously, I was a Research Intern at{' '}
+              <a href="https://github.com/DACASLab" target="_blank" rel="noreferrer">
+                DACAS Lab, IISc
+              </a>
+              , advised by{' '}
+              <a
+                href="https://mecheng.iisc.ac.in/project/jishnu-keshavan/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Prof. Jishnu Keshavan
+              </a>
+              , where I worked on diffusion models for quadrotor residual
+              dynamics. I also worked at{' '}
+              <a
+                href="https://www.thryvmobility.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Thryv Mobility
+              </a>{' '}
+              on embedded systems and PCB design.
+            </p>
+          </div>
+          <div className="clear" />
+        </motion.section>
 
-      <footer>
-        <span>© {new Date().getFullYear()} Shyam Charan Kesavamoorthi</span>
-        <span>Singapore · India</span>
-        <ThemeToggle />
-      </footer>
-    </main>
+        <motion.div className="link-pills" variants={reveal} transition={{ duration: 0.35 }}>
+          <SocialLink href="/shyamcharanCV.pdf" label="CV">
+            <FileText aria-hidden="true" />
+          </SocialLink>
+          <SocialLink href="https://github.com/inclinedtaco" label="Github">
+            <Github aria-hidden="true" />
+          </SocialLink>
+          <SocialLink
+            href="https://www.linkedin.com/in/shyamcharan/"
+            label="LinkedIn"
+          >
+            <Linkedin aria-hidden="true" />
+          </SocialLink>
+          <SocialLink href="mailto:shyamcharan.nitt@gmail.com" label="Email">
+            <Mail aria-hidden="true" />
+          </SocialLink>
+        </motion.div>
+
+        <motion.section
+          id="news"
+          className="academic-section"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <h2>News</h2>
+          <div className="news-list">
+            {news.map((item, index) => (
+              <div key={`${item.year}-${item.month}-${index}`}>
+                {item.showYear && (
+                  <div className="year-row">
+                    <span>{item.year} ↓</span>
+                    <i />
+                  </div>
+                )}
+                <div className="news-row">
+                  <time>{item.month}</time>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="work"
+          className="academic-section"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <h2>Work</h2>
+          <div className="work-media">
+            {projects.map((project) => (
+              <div className="work-tile" key={project.title}>
+                <ProjectVisual variant={project.visual} />
+              </div>
+            ))}
+          </div>
+          <p className="work-summary">
+            My current work focuses on humanoid loco-manipulation using imitation
+            and reinforcement learning. I train and evaluate policies in
+            IsaacLab and study transfer to MuJoCo. My previous research includes
+            conditional diffusion models for quadrotor residual dynamics and
+            embedded systems for mobility applications.
+          </p>
+          <div className="experience-list">
+            {experience.map((item) => (
+              <a href={item.href} target="_blank" rel="noreferrer" key={item.organisation}>
+                <span>
+                  <strong>{item.role}</strong>
+                  <small>{item.organisation}</small>
+                </span>
+                <time>{item.range}</time>
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="projects"
+          className="academic-section"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <h2>Projects</h2>
+          <div className="project-list">
+            {projects.map((project) => (
+              <article className="project-row" key={project.title}>
+                <div className="project-thumb">
+                  <ProjectVisual variant={project.visual} />
+                </div>
+                <div className="project-info">
+                  <h3>{project.title}</h3>
+                  <p className="project-org">{project.context}</p>
+                  <p>{project.description}</p>
+                  <p className="project-period">
+                    {project.period}
+                  </p>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </motion.section>
+
+        <footer>
+          <a href="https://suddhu.github.io/" target="_blank" rel="noreferrer">
+            Design based on Sudharshan Suresh
+          </a>
+          <span>© {new Date().getFullYear()} Shyam Charan Kesavamoorthi</span>
+        </footer>
+      </motion.main>
+    </>
   )
 }

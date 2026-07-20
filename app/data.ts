@@ -51,3 +51,30 @@ export const experience = [
     href: 'https://www.thryvmobility.com/',
   },
 ] as const
+
+export const news = [
+  {
+    year: '2025',
+    month: 'May',
+    showYear: true,
+    text: 'Joined MARMoT Laboratory at NUS as a Research Intern.',
+  },
+  {
+    year: '2025',
+    month: 'May',
+    showYear: false,
+    text: 'Joined DACAS Laboratory at IISc as a Quadrotor Research Intern.',
+  },
+  {
+    year: '2024',
+    month: 'Jun',
+    showYear: true,
+    text: 'Worked at Thryv Mobility as an Embedded Systems Intern.',
+  },
+  {
+    year: '2024',
+    month: 'Jan',
+    showYear: false,
+    text: 'Won first place at SANGAM for an AR surgical-training prototype.',
+  },
+] as const

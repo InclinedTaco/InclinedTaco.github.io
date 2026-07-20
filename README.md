@@ -13,4 +13,4 @@ The site uses Next.js, React, Motion, and a static export for GitHub Pages. Push
 
 ## Design
 
-The interaction restraint and single-page pacing are inspired by [ibelick/nim](https://github.com/ibelick/nim). The layout, robotics visual system, content model, styling, and implementation in this repository are custom.
+The visual system and page structure are based on [Sudharshan Suresh's personal site](https://suddhu.github.io/) and its [source repository](https://github.com/suddhu/suddhu.github.io). Content and project visuals are adapted for Shyam's portfolio.
