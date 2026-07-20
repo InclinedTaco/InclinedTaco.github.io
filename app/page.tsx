@@ -240,6 +240,15 @@ export default function Home() {
           </SocialLink>
         </motion.div>
 
+        <motion.blockquote
+          className="interstellar-quote"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <p>“We are still pioneers. And we’ve barely begun.”</p>
+          <cite>— Interstellar</cite>
+        </motion.blockquote>
+
         <motion.section
           id="news"
           className="academic-section"
@@ -329,7 +338,7 @@ export default function Home() {
 
         <footer>
           <a href="https://suddhu.github.io/" target="_blank" rel="noreferrer">
-            Design based on Sudharshan Suresh
+            Site design respectfully poached from Sudharshan Suresh
           </a>
           <span>© {new Date().getFullYear()} Shyam Charan Kesavamoorthi</span>
         </footer>
