@@ -5,7 +5,7 @@ import {
   FileText,
   Github,
   Linkedin,
-  Mail,
+  Twitter,
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useState } from 'react'
@@ -234,8 +234,8 @@ export default function Home() {
           >
             <Linkedin aria-hidden="true" />
           </SocialLink>
-          <SocialLink href="mailto:shyamcharan.nitt@gmail.com" label="Email">
-            <Mail aria-hidden="true" />
+          <SocialLink href="https://x.com/thisizshyam" label="Twitter">
+            <Twitter aria-hidden="true" />
           </SocialLink>
         </motion.div>
 
