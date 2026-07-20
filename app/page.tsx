@@ -31,11 +31,6 @@ const observations = [
     src: '/portrait-depth.webp',
     description: 'depth-map rendering of the portrait',
   },
-  {
-    label: 'LIDAR',
-    src: '/portrait-lidar.webp',
-    description: 'LiDAR point-cloud rendering of the portrait',
-  },
 ] as const
 
 function ObservationPortrait() {
