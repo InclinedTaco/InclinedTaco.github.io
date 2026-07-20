@@ -37,11 +37,6 @@ const observations = [
     description: 'LiDAR point-cloud rendering of the portrait',
   },
   {
-    label: 'HEATMAP',
-    src: '/portrait-heatmap.webp',
-    description: 'policy-attention heatmap rendering of the portrait',
-  },
-  {
     label: 'DR',
     src: '/portrait-dr.webp',
     description: 'domain-randomized rendering of the portrait',
