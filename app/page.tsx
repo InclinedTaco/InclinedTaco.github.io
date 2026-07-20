@@ -48,6 +48,7 @@ function NameScrambler() {
   const leaveTimeoutRef = useRef<number | null>(null)
   const pointerInsideRef = useRef(false)
   const focusInsideRef = useRef(false)
+  const lastPointerTypeRef = useRef<string | null>(null)
   const targetRef = useRef<'english' | 'tamil'>('english')
   const reduceMotion = useReducedMotion()
 
@@ -141,15 +142,39 @@ function NameScrambler() {
       tabIndex={0}
       lang={targetIsTamil ? 'ta' : 'en'}
       aria-label={targetIsTamil ? tamilName : englishName}
-      onMouseEnter={() => {
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'touch') return
         pointerInsideRef.current = true
         showTamil()
       }}
-      onMouseLeave={() => {
+      onPointerLeave={(event) => {
+        if (event.pointerType === 'touch') return
         pointerInsideRef.current = false
         queueEnglish()
       }}
+      onPointerDown={(event) => {
+        lastPointerTypeRef.current = event.pointerType
+      }}
+      onPointerCancel={() => {
+        lastPointerTypeRef.current = null
+      }}
+      onClick={() => {
+        const pointerType = lastPointerTypeRef.current
+        lastPointerTypeRef.current = null
+        if (pointerType !== 'touch') return
+
+        pointerInsideRef.current = false
+        focusInsideRef.current = false
+        clearLeaveTimeout()
+
+        if (targetRef.current === 'tamil') {
+          scrambleTo(englishName, false)
+        } else {
+          showTamil()
+        }
+      }}
       onFocus={() => {
+        if (lastPointerTypeRef.current !== null) return
         focusInsideRef.current = true
         showTamil()
       }}
