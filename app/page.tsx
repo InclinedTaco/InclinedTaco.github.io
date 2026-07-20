@@ -45,9 +45,16 @@ function NameScrambler() {
   const [displayName, setDisplayName] = useState(englishName)
   const [targetIsTamil, setTargetIsTamil] = useState(false)
   const intervalRef = useRef<number | null>(null)
+  const leaveTimeoutRef = useRef<number | null>(null)
+  const pointerInsideRef = useRef(false)
+  const focusInsideRef = useRef(false)
+  const targetRef = useRef<'english' | 'tamil'>('english')
   const reduceMotion = useReducedMotion()
 
   const scrambleTo = (target: string, isTamil: boolean) => {
+    const nextTarget = isTamil ? 'tamil' : 'english'
+    if (targetRef.current === nextTarget) return
+    targetRef.current = nextTarget
     setTargetIsTamil(isTamil)
 
     if (intervalRef.current !== null) {
@@ -86,10 +93,35 @@ function NameScrambler() {
     }, 32)
   }
 
+  const clearLeaveTimeout = () => {
+    if (leaveTimeoutRef.current !== null) {
+      window.clearTimeout(leaveTimeoutRef.current)
+      leaveTimeoutRef.current = null
+    }
+  }
+
+  const showTamil = () => {
+    clearLeaveTimeout()
+    scrambleTo(tamilNameKa, true)
+  }
+
+  const queueEnglish = () => {
+    clearLeaveTimeout()
+    leaveTimeoutRef.current = window.setTimeout(() => {
+      leaveTimeoutRef.current = null
+      if (!pointerInsideRef.current && !focusInsideRef.current) {
+        scrambleTo(englishName, false)
+      }
+    }, 90)
+  }
+
   useEffect(
     () => () => {
       if (intervalRef.current !== null) {
         window.clearInterval(intervalRef.current)
+      }
+      if (leaveTimeoutRef.current !== null) {
+        window.clearTimeout(leaveTimeoutRef.current)
       }
     },
     [],
@@ -101,10 +133,22 @@ function NameScrambler() {
       tabIndex={0}
       lang={targetIsTamil ? 'ta' : 'en'}
       aria-label={targetIsTamil ? tamilName : englishName}
-      onMouseEnter={() => scrambleTo(tamilNameKa, true)}
-      onMouseLeave={() => scrambleTo(englishName, false)}
-      onFocus={() => scrambleTo(tamilNameKa, true)}
-      onBlur={() => scrambleTo(englishName, false)}
+      onMouseEnter={() => {
+        pointerInsideRef.current = true
+        showTamil()
+      }}
+      onMouseLeave={() => {
+        pointerInsideRef.current = false
+        queueEnglish()
+      }}
+      onFocus={() => {
+        focusInsideRef.current = true
+        showTamil()
+      }}
+      onBlur={() => {
+        focusInsideRef.current = false
+        queueEnglish()
+      }}
     >
       <span className="name-output" aria-hidden="true">{displayName}</span>
       <span className="pixel-cursor" aria-hidden="true" />

@@ -172,22 +172,21 @@ button:focus-visible,
 }
 
 .name-scrambler {
-  min-height: 1.55em;
+  height: 1.55em;
   cursor: text;
 }
 
 .name-output {
   font-family: 'Press Start 2P', ui-monospace, monospace;
   white-space: nowrap;
-  transition: font-size 120ms steps(2, end);
 }
 
 .name-scrambler.tamil-active .name-output {
   font-family: 'Ka Kavithai', sans-serif;
   font-size: clamp(
-    calc(1.18em + 2px),
-    calc(4.2vw + 2px),
-    calc(1.38em + 2px)
+    calc(1.18em + 1px),
+    calc(4.2vw + 1px),
+    calc(1.38em + 1px)
   );
   font-weight: 400;
   line-height: 1;
