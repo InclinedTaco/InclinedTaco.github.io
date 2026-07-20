@@ -51,6 +51,12 @@ export const experience = [
 
 export const news = [
   {
+    year: '2026',
+    month: 'Jan',
+    showYear: true,
+    text: 'Continued research at MARMoT Laboratory, NUS.',
+  },
+  {
     year: '2025',
     month: 'May',
     showYear: true,
