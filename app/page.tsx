@@ -289,12 +289,10 @@ export default function Home() {
             ))}
           </div>
           <p className="work-summary">
-            My current work develops flow-based motion generators for humanoid
-            loco-manipulation. The generated motions are tracked by a downstream
-            reinforcement-learning policy fine-tuned with loco-manipulation
-            rewards. My previous research includes conditional diffusion models
-            for quadrotor residual dynamics and embedded systems for mobility
-            applications.
+            My research interests are in humanoid whole-body loco-manipulation
+            and long-horizon skill chaining. I am particularly interested in
+            structure-aware, data-efficient methods that use strong inductive
+            biases rather than relying on scale alone.
           </p>
           <div className="experience-list">
             {experience.map((item) => (

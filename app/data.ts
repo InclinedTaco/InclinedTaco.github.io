@@ -54,13 +54,13 @@ export const news = [
     year: '2026',
     month: 'Jan',
     showYear: true,
-    text: 'Continued research at MARMoT Laboratory, NUS.',
+    text: 'Moved on-site to MARMoT Laboratory, NUS as a Research Intern.',
   },
   {
     year: '2025',
     month: 'May',
     showYear: true,
-    text: 'Joined MARMoT Laboratory at NUS as a Research Intern.',
+    text: 'Started remotely as a Research Intern at MARMoT Laboratory, NUS.',
   },
   {
     year: '2025',
