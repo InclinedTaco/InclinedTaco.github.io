@@ -36,11 +36,6 @@ const observations = [
     src: '/portrait-lidar.webp',
     description: 'LiDAR point-cloud rendering of the portrait',
   },
-  {
-    label: 'DR',
-    src: '/portrait-dr.webp',
-    description: 'domain-randomized rendering of the portrait',
-  },
 ] as const
 
 function ObservationPortrait() {
