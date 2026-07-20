@@ -162,6 +162,22 @@ button:focus-visible {
   letter-spacing: -0.04em;
 }
 
+.name-scrambler {
+  min-height: 1.55em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: text;
+}
+
+.name-scrambler span {
+  font-family: var(--pixel), 'Noto Sans Tamil', 'Tamil Sangam MN', Latha, sans-serif;
+}
+
 .pixel-cursor {
   display: inline-block;
   width: 12px;

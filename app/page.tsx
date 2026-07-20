@@ -8,7 +8,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { experience, news, projects, publications } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
@@ -23,6 +23,87 @@ const reveal = {
 const emailUser = 'shyamcharan.nitt'
 const scrambleCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+const englishName = 'Shyam Charan Kesavamoorthi'
+const tamilName = 'ஷ்யாம் சரண் கேசவமூர்த்தி'
+const nameScrambleCharacters =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789அஆஇஈஉஊஎஏஐஒஓகஙசஞடணதநபமயரலவழளறன'
+
+function splitGraphemes(value: string) {
+  const segmenter = new Intl.Segmenter('ta', { granularity: 'grapheme' })
+  return Array.from(segmenter.segment(value), ({ segment }) => segment)
+}
+
+function randomNameCharacter() {
+  return nameScrambleCharacters.charAt(
+    Math.floor(Math.random() * nameScrambleCharacters.length),
+  )
+}
+
+function NameScrambler() {
+  const [displayName, setDisplayName] = useState(englishName)
+  const intervalRef = useRef<number | null>(null)
+  const reduceMotion = useReducedMotion()
+
+  const scrambleTo = (target: string) => {
+    if (intervalRef.current !== null) {
+      window.clearInterval(intervalRef.current)
+    }
+
+    if (reduceMotion) {
+      setDisplayName(target)
+      return
+    }
+
+    const targetCharacters = splitGraphemes(target)
+    const totalFrames = Math.max(targetCharacters.length, 16)
+    let frame = 0
+
+    intervalRef.current = window.setInterval(() => {
+      frame += 1
+      const revealedCharacters = Math.floor(
+        (frame / totalFrames) * targetCharacters.length,
+      )
+
+      setDisplayName(
+        targetCharacters
+          .map((character, index) => {
+            if (character === ' ') return ' '
+            return index < revealedCharacters ? character : randomNameCharacter()
+          })
+          .join(''),
+      )
+
+      if (frame >= totalFrames) {
+        window.clearInterval(intervalRef.current ?? undefined)
+        intervalRef.current = null
+        setDisplayName(target)
+      }
+    }, 32)
+  }
+
+  useEffect(
+    () => () => {
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current)
+      }
+    },
+    [],
+  )
+
+  return (
+    <button
+      type="button"
+      className="name-scrambler"
+      aria-label={englishName}
+      onMouseEnter={() => scrambleTo(tamilName)}
+      onMouseLeave={() => scrambleTo(englishName)}
+      onFocus={() => scrambleTo(tamilName)}
+      onBlur={() => scrambleTo(englishName)}
+    >
+      <span aria-hidden="true">{displayName}</span>
+    </button>
+  )
+}
 
 function randomCharacters(length: number) {
   return Array.from({ length }, () =>
@@ -162,7 +243,7 @@ export default function Home() {
           <img src="/portrait.jpg" alt="Portrait of Shyam Charan" />
           <div className="about-copy">
             <h1>
-              Shyam Charan Kesavamoorthi
+              <NameScrambler />
               <span className="pixel-cursor" aria-hidden="true" />
             </h1>
             <EmailScrambler />
