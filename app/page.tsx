@@ -184,8 +184,7 @@ export default function Home() {
               >
                 Prof. Guillaume Sartoretti
               </a>
-              . My research focuses on humanoid loco-manipulation and
-              multi-humanoid collaboration.
+              .
             </p>
             <p>
               Previously, I was a Research Intern at{' '}
@@ -239,15 +238,6 @@ export default function Home() {
             <Mail aria-hidden="true" />
           </SocialLink>
         </motion.div>
-
-        <motion.blockquote
-          className="interstellar-quote"
-          variants={reveal}
-          transition={{ duration: 0.35 }}
-        >
-          <p>“We are still pioneers. And we’ve barely begun.”</p>
-          <cite>— Interstellar</cite>
-        </motion.blockquote>
 
         <motion.section
           id="news"
@@ -333,6 +323,15 @@ export default function Home() {
             ))}
           </div>
         </motion.section>
+
+        <motion.blockquote
+          className="interstellar-quote"
+          variants={reveal}
+          transition={{ duration: 0.35 }}
+        >
+          <p>“We are still pioneers. And we’ve barely begun.”</p>
+          <cite>— Cooper, Interstellar</cite>
+        </motion.blockquote>
 
         <footer>
           <a href="https://suddhu.github.io/" target="_blank" rel="noreferrer">

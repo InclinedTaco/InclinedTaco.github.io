@@ -221,7 +221,7 @@ button:focus-visible {
 
 .link-pills {
   display: flex;
-  margin: 22px 0 28px;
+  margin: 22px 0 54px;
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px;
@@ -259,7 +259,7 @@ button:focus-visible {
 }
 
 .interstellar-quote {
-  margin: 0;
+  margin: 64px 0 0;
   color: var(--muted);
   text-align: center;
 }
