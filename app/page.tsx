@@ -150,8 +150,11 @@ function NameScrambler() {
         queueEnglish()
       }}
     >
-      <span className="name-output" aria-hidden="true">{displayName}</span>
-      <span className="pixel-cursor" aria-hidden="true" />
+      <span className="name-width-anchor" aria-hidden="true">{englishName}</span>
+      <span className="name-visible" aria-hidden="true">
+        <span className="name-output">{displayName}</span>
+        <span className="pixel-cursor" />
+      </span>
     </h1>
   )
 }
