@@ -8,7 +8,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { useEffect, useState, type CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { experience, news, projects, publications } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
@@ -24,75 +24,56 @@ const emailUser = 'shyamcharan.nitt'
 const scrambleCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
-const observationModes = ['RGB', 'DEPTH', 'LIDAR', 'HEATMAP', 'DR'] as const
-type ObservationMode = (typeof observationModes)[number]
-type ObservationStyle = CSSProperties & Record<`--${string}`, string | number>
-
-const lidarPoints = Array.from({ length: 74 }, (_, index) => ({
-  x: 5 + ((index * 37) % 91),
-  y: 7 + ((index * 53 + (index % 6) * 11) % 87),
-  depth: index % 5,
-}))
-
-function createDomainRandomization(): ObservationStyle {
-  const between = (minimum: number, maximum: number) =>
-    minimum + Math.random() * (maximum - minimum)
-
-  return {
-    '--dr-brightness': between(0.68, 1.2).toFixed(2),
-    '--dr-contrast': between(0.82, 1.42).toFixed(2),
-    '--dr-saturation': between(0.45, 1.55).toFixed(2),
-    '--dr-hue': `${Math.round(between(-22, 22))}deg`,
-    '--dr-rotate': `${between(-2.2, 2.2).toFixed(2)}deg`,
-    '--dr-scale': between(1.02, 1.1).toFixed(2),
-    '--dr-blur': `${between(0, 0.8).toFixed(2)}px`,
-    '--dr-light-x': `${Math.round(between(8, 92))}%`,
-    '--dr-light-y': `${Math.round(between(8, 92))}%`,
-    '--dr-occlusion-x': `${Math.round(between(4, 78))}%`,
-    '--dr-occlusion-y': `${Math.round(between(8, 76))}%`,
-    '--dr-occlusion-rotate': `${Math.round(between(-18, 18))}deg`,
-  }
-}
+const observations = [
+  { label: 'RGB', src: '/portrait.jpg', description: 'RGB portrait' },
+  {
+    label: 'DEPTH',
+    src: '/portrait-depth.webp',
+    description: 'depth-map rendering of the portrait',
+  },
+  {
+    label: 'LIDAR',
+    src: '/portrait-lidar.webp',
+    description: 'LiDAR point-cloud rendering of the portrait',
+  },
+  {
+    label: 'HEATMAP',
+    src: '/portrait-heatmap.webp',
+    description: 'policy-attention heatmap rendering of the portrait',
+  },
+  {
+    label: 'DR',
+    src: '/portrait-dr.webp',
+    description: 'domain-randomized rendering of the portrait',
+  },
+] as const
 
 function ObservationPortrait() {
   const [modeIndex, setModeIndex] = useState(0)
-  const [drStyle, setDrStyle] = useState<ObservationStyle>({})
-  const mode: ObservationMode = observationModes[modeIndex]
+  const observation = observations[modeIndex]
+  const nextObservation = observations[(modeIndex + 1) % observations.length]
 
-  const cycleMode = () => {
-    const nextIndex = (modeIndex + 1) % observationModes.length
-    if (observationModes[nextIndex] === 'DR') {
-      setDrStyle(createDomainRandomization())
-    }
-    setModeIndex(nextIndex)
-  }
+  useEffect(() => {
+    const image = new Image()
+    image.src = nextObservation.src
+  }, [nextObservation.src])
 
   return (
     <button
       type="button"
-      className={`observation-portrait mode-${mode.toLowerCase()}`}
-      style={mode === 'DR' ? drStyle : undefined}
-      onClick={cycleMode}
-      aria-label={`Portrait observation: ${mode}. Activate to switch to ${
-        observationModes[(modeIndex + 1) % observationModes.length]
-      }.`}
+      className="observation-portrait"
+      onClick={() => setModeIndex((modeIndex + 1) % observations.length)}
+      aria-label={`Portrait observation: ${observation.label}. Activate to switch to ${nextObservation.label}.`}
       title="Cycle policy observations"
     >
-      <img src="/portrait.jpg" alt="Portrait of Shyam Charan" draggable="false" />
-      <span className="observation-overlay" aria-hidden="true" />
-      {mode === 'LIDAR' && (
-        <span className="lidar-cloud" aria-hidden="true">
-          {lidarPoints.map((point, index) => (
-            <i
-              key={index}
-              data-depth={point.depth}
-              style={{ left: `${point.x}%`, top: `${point.y}%` }}
-            />
-          ))}
-        </span>
-      )}
+      <img
+        key={observation.src}
+        src={observation.src}
+        alt={`${observation.description} of Shyam Charan`}
+        draggable="false"
+      />
       <span className="observation-label" aria-live="polite">
-        OBS / {mode}
+        OBS / {observation.label}
       </span>
       <span className="observation-hint" aria-hidden="true">click ↻</span>
     </button>
