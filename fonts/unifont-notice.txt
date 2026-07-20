@@ -1,0 +1,13 @@
+GNU Unifont 17.0.04 — Tamil subset
+
+Source: https://ftp.gnu.org/gnu/unifont/unifont-17.0.04/
+Copyright © 1998–2026 Roman Czyborra, Paul Hardy, Qianqian Fang,
+Andrew Miller, Johnnie Weaver, David Corbett, Ælla Chiana Moskopp,
+Rebecca Bettencourt, Ho-Seok Ee, et al.
+
+Dual licensed under the SIL Open Font License 1.1 and GNU GPL 2 or later
+with the GNU Font Embedding Exception.
+
+License information:
+https://openfontlicense.org/open-font-license-official-text/
+https://www.gnu.org/licenses/gpl-2.0.html
