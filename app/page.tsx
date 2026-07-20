@@ -20,23 +20,56 @@ const reveal = {
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
 
+const emailUser = 'shyamcharan.nitt'
+const scrambleCharacters =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+function randomCharacters(length: number) {
+  return Array.from({ length }, () =>
+    scrambleCharacters.charAt(
+      Math.floor(Math.random() * scrambleCharacters.length),
+    ),
+  ).join('')
+}
+
 function EmailScrambler() {
-  const [revealed, setRevealed] = useState(false)
+  const [isScrambled, setIsScrambled] = useState(true)
+  const [displayUsername, setDisplayUsername] = useState(
+    '•'.repeat(emailUser.length),
+  )
+
+  useEffect(() => {
+    if (isScrambled) {
+      setDisplayUsername(randomCharacters(emailUser.length))
+      return
+    }
+
+    let revealedCharacters = 0
+    const interval = window.setInterval(() => {
+      revealedCharacters += 1
+      setDisplayUsername(
+        emailUser.slice(0, revealedCharacters) +
+          randomCharacters(emailUser.length - revealedCharacters),
+      )
+
+      if (revealedCharacters >= emailUser.length) {
+        window.clearInterval(interval)
+      }
+    }, 50)
+
+    return () => window.clearInterval(interval)
+  }, [isScrambled])
 
   return (
     <div className="email-block">
-      <button type="button" onClick={() => setRevealed((value) => !value)}>
-        {revealed ? (
-          <>
-            shyamcharan.nitt<span> [at] </span>gmail<span> [dot] </span>com
-          </>
-        ) : (
-          <>
-            ••••••••••••••••<span> [at] </span>gmail<span> [dot] </span>com
-          </>
-        )}
+      <button
+        type="button"
+        aria-label={isScrambled ? 'Unscramble email address' : 'Scramble email address'}
+        onClick={() => setIsScrambled((value) => !value)}
+      >
+        {displayUsername}<span> [at] </span>gmail<span> [dot] </span>com
       </button>
-      <small>{revealed ? '\u00a0' : '(click to unscramble)'}</small>
+      <small>{isScrambled ? '(click to unscramble)' : '\u00a0'}</small>
     </div>
   )
 }
