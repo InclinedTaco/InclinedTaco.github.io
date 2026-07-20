@@ -273,11 +273,13 @@ export default function Home() {
             ))}
           </div>
           <p className="work-summary">
-            My current work focuses on humanoid loco-manipulation using imitation
-            and reinforcement learning. I train and evaluate policies in
-            IsaacLab and study transfer to MuJoCo. My previous research includes
-            conditional diffusion models for quadrotor residual dynamics and
-            embedded systems for mobility applications.
+            My current work develops flow-based motion generators for humanoid
+            loco-manipulation. The generated motions are tracked by a downstream
+            reinforcement-learning policy fine-tuned with loco-manipulation
+            rewards. I train and evaluate the tracker in IsaacLab and study
+            transfer to MuJoCo. My previous research includes conditional
+            diffusion models for quadrotor residual dynamics and embedded systems
+            for mobility applications.
           </p>
           <div className="experience-list">
             {experience.map((item) => (

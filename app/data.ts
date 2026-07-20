@@ -1,12 +1,12 @@
 export const projects = [
   {
     index: '01',
-    title: 'General loco-manipulation',
+    title: 'Motion generation for humanoid loco-manipulation',
     context: 'MARMoT Lab · NUS',
     period: '2025 — now',
     description:
-      'Developing whole-body policies that let humanoids move through a scene and manipulate objects as one continuous skill.',
-    tags: ['Imitation learning', 'Reinforcement learning', 'IsaacLab', 'MuJoCo'],
+      'Developed a flow-based motion generator for humanoid loco-manipulation. The generated motions serve as references for a downstream reinforcement-learning tracker fine-tuned with loco-manipulation rewards.',
+    tags: ['Flow models', 'Motion generation', 'RL tracking', 'Humanoids'],
     visual: 'locomotion',
   },
   {
