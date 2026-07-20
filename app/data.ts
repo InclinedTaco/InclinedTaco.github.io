@@ -30,7 +30,7 @@ export const projects = [
 
 export const experience = [
   {
-    role: 'Undergraduate Researcher',
+    role: 'Research Intern',
     organisation: 'MARMoT Laboratory, National University of Singapore',
     range: 'May 2025 — Present',
     href: 'https://marmotlab.org/',
