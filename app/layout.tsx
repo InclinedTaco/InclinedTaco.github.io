@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shyam Charan — Robotics Researcher',
     description:
-      'Learning systems for robots that move, manipulate, and collaborate.',
+      'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
     url: 'https://inclinedtaco.github.io',
     siteName: 'Shyam Charan',
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shyam Charan — Robotics Researcher',
     description:
-      'Learning systems for robots that move, manipulate, and collaborate.',
+      'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },

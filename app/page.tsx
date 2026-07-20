@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { experience, milestones, projects } from './data'
+import { experience, projects } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
 
@@ -46,7 +46,7 @@ export default function Home() {
           </span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#work">Work</a>
+          <a href="#work">Research</a>
           <a href="#experience">Experience</a>
           <a href="/shyamcharanCV.pdf" target="_blank">
             CV
@@ -64,16 +64,14 @@ export default function Home() {
       >
         <div className="status-line">
           <span className="status-dot" />
-          Research intern at MARMoT Lab · NUS
+          Research Intern · MARMoT Lab, NUS
         </div>
-        <h1>
-          Learning systems for robots that <em>move, manipulate,</em> and
-          collaborate.
-        </h1>
+        <h1>Shyam Charan Kesavamoorthi</h1>
         <p className="hero-copy">
-          I work at the intersection of robot learning and whole-body control,
-          building general-purpose humanoids that can perform complex tasks in
-          real environments.
+          I am a final-year undergraduate at NIT Tiruchirappalli and a Research
+          Intern at MARMoT Lab, National University of Singapore. My research
+          focuses on loco-manipulation, robot learning, and multi-humanoid
+          collaboration.
         </p>
         <div className="hero-links">
           <ExternalLink href="mailto:shyamcharan.nitt@gmail.com">
@@ -91,10 +89,9 @@ export default function Home() {
       <section id="work" className="section-block">
         <div className="section-heading">
           <div>
-            <span>Selected work</span>
-            <h2>Research &amp; systems</h2>
+            <span>Research</span>
+            <h2>Selected projects</h2>
           </div>
-          <p>Ideas moving from simulation toward the physical world.</p>
         </div>
 
         <div className="project-grid">
@@ -131,8 +128,8 @@ export default function Home() {
       <section id="experience" className="section-block">
         <div className="section-heading compact">
           <div>
-            <span>Experience</span>
-            <h2>Where I&apos;ve worked</h2>
+            <span>Background</span>
+            <h2>Experience</h2>
           </div>
         </div>
         <div className="experience-list">
@@ -159,41 +156,43 @@ export default function Home() {
         <div>
           <div className="section-heading compact">
             <div>
-              <span>Now</span>
-              <h2>Current questions</h2>
+              <span>Education</span>
+              <h2>NIT Tiruchirappalli</h2>
             </div>
           </div>
-          <ul className="question-list">
-            <li>How can one policy connect locomotion and manipulation?</li>
-            <li>What makes humanoid skills transfer reliably across simulators?</li>
-            <li>How should multiple humanoids coordinate around shared objects?</li>
-          </ul>
+          <div className="profile-detail">
+            <strong>B.Tech, Instrumentation and Control Engineering</strong>
+            <span>2022 — 2026</span>
+          </div>
         </div>
         <div>
           <div className="section-heading compact">
             <div>
-              <span>Milestones</span>
-              <h2>Along the way</h2>
+              <span>Research interests</span>
+              <h2>Areas of focus</h2>
             </div>
           </div>
-          <ol className="timeline">
-            {milestones.map((milestone) => (
-              <li key={milestone.date}>
-                <time>{milestone.date}</time>
-                <p>{milestone.text}</p>
-              </li>
-            ))}
-          </ol>
+          <ul className="focus-list">
+            <li>Loco-manipulation</li>
+            <li>Whole-body control</li>
+            <li>Multi-humanoid collaboration</li>
+            <li>Imitation and reinforcement learning</li>
+          </ul>
         </div>
       </section>
 
       <section className="closing-card">
-        <span className="closing-kicker">Let&apos;s build what moves next.</span>
-        <h2>Interested in robot learning, humanoids, or embodied AI?</h2>
-        <p>I&apos;m always happy to talk research, systems, and ambitious robots.</p>
+        <h2>Contact</h2>
+        <p>
+          For research discussions or collaboration, email me at{' '}
+          <a href="mailto:shyamcharan.nitt@gmail.com">
+            shyamcharan.nitt@gmail.com
+          </a>
+          .
+        </p>
         <div className="closing-actions">
           <a href="mailto:shyamcharan.nitt@gmail.com" className="primary-button">
-            Start a conversation <ArrowUpRight size={15} aria-hidden="true" />
+            Email <ArrowUpRight size={15} aria-hidden="true" />
           </a>
           <a href="/shyamcharanCV.pdf" target="_blank" className="text-button">
             <FileText size={15} aria-hidden="true" /> View CV

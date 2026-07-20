@@ -51,14 +51,3 @@ export const experience = [
     href: 'https://www.thryvmobility.com/',
   },
 ] as const
-
-export const milestones = [
-  {
-    date: 'May 2025',
-    text: 'Joined MARMoT Lab and DACAS Lab as a research intern.',
-  },
-  {
-    date: 'Jan 2024',
-    text: 'Won first place at SANGAM for an AR surgical-training prototype.',
-  },
-] as const

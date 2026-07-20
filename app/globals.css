@@ -623,14 +623,13 @@ nav a:hover::after {
   gap: 70px;
 }
 
-.question-list,
-.timeline {
+.focus-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.question-list li {
+.focus-list li {
   position: relative;
   padding: 11px 0 11px 17px;
   border-bottom: 1px solid var(--line);
@@ -638,7 +637,7 @@ nav a:hover::after {
   font-size: 13px;
 }
 
-.question-list li::before {
+.focus-list li::before {
   position: absolute;
   top: 20px;
   left: 1px;
@@ -649,50 +648,25 @@ nav a:hover::after {
   content: '';
 }
 
-.timeline {
-  position: relative;
+.profile-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 11px 0 17px;
+  border-bottom: 1px solid var(--line);
 }
 
-.timeline::before {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 4px;
-  width: 1px;
-  background: var(--line);
-  content: '';
+.profile-detail strong {
+  font-size: 13px;
+  font-weight: 520;
 }
 
-.timeline li {
-  position: relative;
-  padding: 0 0 19px 20px;
-}
-
-.timeline li::before {
-  position: absolute;
-  top: 7px;
-  left: 1px;
-  width: 7px;
-  height: 7px;
-  border: 2px solid var(--background);
-  border-radius: 50%;
-  background: var(--faint);
-  box-shadow: 0 0 0 1px var(--line);
-  content: '';
-}
-
-.timeline time {
+.profile-detail span {
   color: var(--faint);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 9px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.timeline p {
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 12px;
 }
 
 .closing-card {
@@ -737,6 +711,13 @@ nav a:hover::after {
   margin: 15px 0 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.closing-card p a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
 }
 
 .primary-button,
