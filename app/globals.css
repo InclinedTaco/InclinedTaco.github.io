@@ -140,14 +140,161 @@ button:focus-visible {
   padding: 88px 0 24px;
 }
 
-.about-section > img {
+.observation-portrait {
+  position: relative;
   display: block;
   width: 300px;
   height: 300px;
+  padding: 0;
   margin: 0 auto 16px;
   border: 1px solid var(--line);
   border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.observation-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transform: scale(1.002);
+  transition: filter 220ms ease, transform 220ms ease;
+  user-select: none;
+}
+
+.observation-overlay,
+.lidar-cloud {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.observation-overlay {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.observation-label,
+.observation-hint {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 6px 4px;
+  background: rgba(9, 9, 11, 0.72);
+  color: #fff;
+  font-family: var(--pixel);
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  backdrop-filter: blur(4px);
+}
+
+.observation-label {
+  top: 9px;
+  left: 9px;
+}
+
+.observation-hint {
+  right: 9px;
+  bottom: 9px;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.observation-portrait:hover .observation-hint,
+.observation-portrait:focus-visible .observation-hint {
+  opacity: 1;
+}
+
+.mode-depth img {
+  filter: grayscale(1) contrast(1.28) brightness(0.82);
+}
+
+.mode-depth .observation-overlay {
+  opacity: 0.9;
+  background:
+    repeating-radial-gradient(circle at 48% 43%, transparent 0 15px, rgba(255, 255, 255, 0.12) 16px 17px),
+    linear-gradient(135deg, #12006b 3%, #006ee6 35%, #00d7bd 58%, #ffe65b 79%, #ff4b28 100%);
+  mix-blend-mode: color;
+}
+
+.mode-lidar img {
+  filter: grayscale(1) brightness(0.25) contrast(1.25);
+}
+
+.mode-lidar .observation-overlay {
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.lidar-cloud i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #80ffdb;
+  box-shadow: 0 0 4px currentColor;
+}
+
+.lidar-cloud i[data-depth='1'] { color: #64dfdf; background: currentColor; }
+.lidar-cloud i[data-depth='2'] { color: #48bfe3; background: currentColor; }
+.lidar-cloud i[data-depth='3'] { color: #5e60ce; background: currentColor; }
+.lidar-cloud i[data-depth='4'] { color: #ff5d8f; background: currentColor; }
+
+.mode-heatmap img {
+  filter: grayscale(1) contrast(1.18);
+}
+
+.mode-heatmap .observation-overlay {
+  opacity: 0.92;
+  background:
+    radial-gradient(circle at 50% 23%, #ff2d00 0 9%, #ffcf00 18%, transparent 34%),
+    radial-gradient(circle at 36% 55%, #ff7b00 0 7%, #ccff00 19%, transparent 36%),
+    radial-gradient(circle at 68% 64%, #00d9ff 0 8%, #004cff 25%, transparent 43%),
+    #19005c;
+  mix-blend-mode: color;
+}
+
+.mode-dr img {
+  filter:
+    brightness(var(--dr-brightness, 0.9))
+    contrast(var(--dr-contrast, 1.1))
+    saturate(var(--dr-saturation, 1.2))
+    hue-rotate(var(--dr-hue, 0deg))
+    blur(var(--dr-blur, 0px));
+  transform:
+    scale(var(--dr-scale, 1.04))
+    rotate(var(--dr-rotate, 0deg));
+}
+
+.mode-dr .observation-overlay {
+  opacity: 1;
+  background:
+    linear-gradient(
+      var(--dr-occlusion-rotate, 5deg),
+      transparent 0 42%,
+      rgba(6, 6, 8, 0.42) 43% 51%,
+      transparent 52%
+    ),
+    radial-gradient(
+      circle at var(--dr-light-x, 70%) var(--dr-light-y, 25%),
+      rgba(255, 245, 196, 0.44),
+      transparent 38%
+    ),
+    repeating-linear-gradient(115deg, transparent 0 3px, rgba(255, 255, 255, 0.035) 4px);
+  background-position:
+    var(--dr-occlusion-x, 50%) var(--dr-occlusion-y, 50%),
+    center,
+    center;
+  mix-blend-mode: screen;
 }
 
 .about-copy h1 {
@@ -640,7 +787,7 @@ footer a {
 }
 
 @media (min-width: 640px) {
-  .about-section > img {
+  .observation-portrait {
     float: left;
     margin: 0 24px 12px 0;
   }

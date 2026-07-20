@@ -8,7 +8,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { experience, news, projects, publications } from './data'
 import { ProjectVisual } from './project-visual'
 import { ThemeToggle } from './theme-toggle'
@@ -23,6 +23,81 @@ const reveal = {
 const emailUser = 'shyamcharan.nitt'
 const scrambleCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+const observationModes = ['RGB', 'DEPTH', 'LIDAR', 'HEATMAP', 'DR'] as const
+type ObservationMode = (typeof observationModes)[number]
+type ObservationStyle = CSSProperties & Record<`--${string}`, string | number>
+
+const lidarPoints = Array.from({ length: 74 }, (_, index) => ({
+  x: 5 + ((index * 37) % 91),
+  y: 7 + ((index * 53 + (index % 6) * 11) % 87),
+  depth: index % 5,
+}))
+
+function createDomainRandomization(): ObservationStyle {
+  const between = (minimum: number, maximum: number) =>
+    minimum + Math.random() * (maximum - minimum)
+
+  return {
+    '--dr-brightness': between(0.68, 1.2).toFixed(2),
+    '--dr-contrast': between(0.82, 1.42).toFixed(2),
+    '--dr-saturation': between(0.45, 1.55).toFixed(2),
+    '--dr-hue': `${Math.round(between(-22, 22))}deg`,
+    '--dr-rotate': `${between(-2.2, 2.2).toFixed(2)}deg`,
+    '--dr-scale': between(1.02, 1.1).toFixed(2),
+    '--dr-blur': `${between(0, 0.8).toFixed(2)}px`,
+    '--dr-light-x': `${Math.round(between(8, 92))}%`,
+    '--dr-light-y': `${Math.round(between(8, 92))}%`,
+    '--dr-occlusion-x': `${Math.round(between(4, 78))}%`,
+    '--dr-occlusion-y': `${Math.round(between(8, 76))}%`,
+    '--dr-occlusion-rotate': `${Math.round(between(-18, 18))}deg`,
+  }
+}
+
+function ObservationPortrait() {
+  const [modeIndex, setModeIndex] = useState(0)
+  const [drStyle, setDrStyle] = useState<ObservationStyle>({})
+  const mode: ObservationMode = observationModes[modeIndex]
+
+  const cycleMode = () => {
+    const nextIndex = (modeIndex + 1) % observationModes.length
+    if (observationModes[nextIndex] === 'DR') {
+      setDrStyle(createDomainRandomization())
+    }
+    setModeIndex(nextIndex)
+  }
+
+  return (
+    <button
+      type="button"
+      className={`observation-portrait mode-${mode.toLowerCase()}`}
+      style={mode === 'DR' ? drStyle : undefined}
+      onClick={cycleMode}
+      aria-label={`Portrait observation: ${mode}. Activate to switch to ${
+        observationModes[(modeIndex + 1) % observationModes.length]
+      }.`}
+      title="Cycle policy observations"
+    >
+      <img src="/portrait.jpg" alt="Portrait of Shyam Charan" draggable="false" />
+      <span className="observation-overlay" aria-hidden="true" />
+      {mode === 'LIDAR' && (
+        <span className="lidar-cloud" aria-hidden="true">
+          {lidarPoints.map((point, index) => (
+            <i
+              key={index}
+              data-depth={point.depth}
+              style={{ left: `${point.x}%`, top: `${point.y}%` }}
+            />
+          ))}
+        </span>
+      )}
+      <span className="observation-label" aria-live="polite">
+        OBS / {mode}
+      </span>
+      <span className="observation-hint" aria-hidden="true">click ↻</span>
+    </button>
+  )
+}
 
 function randomCharacters(length: number) {
   return Array.from({ length }, () =>
@@ -159,7 +234,7 @@ export default function Home() {
           variants={reveal}
           transition={{ duration: 0.35 }}
         >
-          <img src="/portrait.jpg" alt="Portrait of Shyam Charan" />
+          <ObservationPortrait />
           <div className="about-copy">
             <h1>
               Shyam Charan Kesavamoorthi
