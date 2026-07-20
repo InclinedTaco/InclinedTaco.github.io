@@ -13,12 +13,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://inclinedtaco.github.io'),
-  title: 'Shyam Charan — Robotics Researcher',
+  title: 'Shyam Charan Kesavamoorthi',
   description:
     'Robotics researcher working on loco-manipulation, robot learning, and multi-humanoid collaboration.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Shyam Charan — Robotics Researcher',
+    title: 'Shyam Charan Kesavamoorthi',
     description:
       'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
     url: 'https://inclinedtaco.github.io',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shyam Charan — Robotics Researcher',
+    title: 'Shyam Charan Kesavamoorthi',
     description:
       'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
     images: ['/og.png'],
