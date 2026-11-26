@@ -357,9 +357,8 @@ export default function Home() {
               </a>, where I work on humanoid whole-body loco-manipulation. My research interest is safe robot
               learning: embodiment- and policy-agnostic safety layers that give
               constraint-satisfaction guarantees for learned controllers.
-              I work with control barrier functions, reachability analysis and
-              runtime safety filtering under perception and dynamics
-              uncertainty.
+              I am currently exploring control barrier functions and runtime
+              safety filtering under perception and dynamics uncertainty.
             </p>
             <p>
               I graduated from{' '}

@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://inclinedtaco.github.io'),
   title: 'Shyam Charan Kesavamoorthi',
   description:
-    'Robotics researcher working on loco-manipulation, robot learning, and multi-humanoid collaboration.',
+    'Robotics researcher working on humanoid loco-manipulation and safe robot learning.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Shyam Charan Kesavamoorthi',
     description:
-      'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
+      'Research in humanoid loco-manipulation and safe robot learning.',
     url: 'https://inclinedtaco.github.io',
     siteName: 'Shyam Charan',
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shyam Charan Kesavamoorthi',
     description:
-      'Research in loco-manipulation, robot learning, and multi-humanoid collaboration.',
+      'Research in humanoid loco-manipulation and safe robot learning.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },

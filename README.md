@@ -1,6 +1,6 @@
 # Shyam Charan — Portfolio
 
-Personal research portfolio for [Shyam Charan Kesavamoorthi](https://inclinedtaco.github.io/), focused on robot learning, loco-manipulation, and multi-humanoid systems.
+Personal research portfolio for [Shyam Charan Kesavamoorthi](https://inclinedtaco.github.io/), focused on humanoid loco-manipulation and safe robot learning.
 
 ## Development
 
