@@ -354,8 +354,7 @@ export default function Home() {
                 rel="noreferrer"
               >
                 Prof. Guillaume Sartoretti
-              </a>, where I work on humanoid whole-body loco-manipulation and
-              long-horizon skill composition. My research interest is safe robot
+              </a>, where I work on humanoid whole-body loco-manipulation. My research interest is safe robot
               learning: embodiment- and policy-agnostic safety layers that give
               constraint-satisfaction guarantees for learned controllers.
               I work with control barrier functions, reachability analysis and
