@@ -355,9 +355,12 @@ export default function Home() {
               >
                 Prof. Guillaume Sartoretti
               </a>, where I work on humanoid whole-body loco-manipulation and
-              long-horizon skill composition. I am broadly interested in
-              structure-aware and data-efficient robot-learning methods that use
-              strong inductive biases rather than relying on scale alone.
+              long-horizon skill composition. My research interest is safe robot
+              learning: embodiment- and policy-agnostic safety layers that give
+              constraint-satisfaction guarantees for learned controllers.
+              I work with control barrier functions, reachability analysis and
+              runtime safety filtering under perception and dynamics
+              uncertainty.
             </p>
             <p>
               I graduated from{' '}
